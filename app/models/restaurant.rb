@@ -1,3 +1,6 @@
 class Restaurant < ApplicationRecord
-  enum category: { chinese: 0, italian: 1, japanese: 2, french: 3, belgian: 4 }
+  has_many :reviews, dependent: :destroy
+
+  validates :name, :address, :category, presence: true
+  validates :category, inclusion: { in: %w(chinese italian japanese french belgian) }
 end

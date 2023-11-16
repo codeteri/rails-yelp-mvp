@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <div class="text-center">
+    <h2><%= @restaurant.name %></h2>
+    <p><%= @restaurant.address %></p>
+    <p><%= @restaurant.phone_number %></p>
+    <p><%= @restaurant.category %></p>
+    <%# <% @restaurants.each do |restaurant| %>
+    <%# <%=  %>
+    <%# <% end %>
+    <% @reviews.each do |review| %>
+    <p><%= review.content %></p>
+    <% end %>
+
+    <%= render "reviews/form", restaurant: @restaurant, review: @review%>
+
+    <br>
+    <%= link_to "Back to list", restaurants_path, class: "btn btn-secondary" %>
+  </div>
+</div>
